@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from dotenv import dotenv_values, find_dotenv
 import os
 
@@ -27,6 +28,13 @@ def iip_dataclean(data):
 
     # Use the melt function to convert the DataFrame to long format
     iip_long = pd.melt(data, id_vars=id_vars, var_name='date', value_name='value')
+
+    # remove the weird strings by just changing them to nan
+    iip_long.loc[iip_long['value'] == 'C', 'value'] = np.nan
+    iip_long.loc[iip_long['value'] == '-', 'value'] = np.nan
+    iip_long.loc[iip_long['value'] == 'K', 'value'] = np.nan
+    # i'm considering zeros as nans as well just based on how the zeros are distributed
+    iip_long.loc[iip_long['value'] == '0', 'value'] = np.nan
 
     # convert to datetime
     iip_long['date'] = pd.to_datetime(iip_long['date'])
