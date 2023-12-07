@@ -156,9 +156,9 @@ def filter_data_heatmap(data, indicator, agg=None):
 
     # Export graph as pdf
     fig = ax.get_figure()
-    if indicator == 'I_L_T_T_T_BP6_USD' or indicator == 'I_A_T_T_T_BP6_USD':
-        fig.savefig(path_figures + 'availability_' + indicator + '_' + agg + '.pdf', bbox_inches = 'tight')
-    else:
-        fig.savefig(path_figures + 'availability_' + indicator + '.pdf', bbox_inches = 'tight')
+    # if indicator == 'I_L_T_T_T_BP6_USD' or indicator == 'I_A_T_T_T_BP6_USD':
+    #     fig.savefig(path_figures + 'availability_' + indicator + '_' + agg + '.pdf', bbox_inches = 'tight')
+    # else:
+    #     fig.savefig(path_figures + 'availability_' + indicator + '.pdf', bbox_inches = 'tight')
 
     return forheatmap
