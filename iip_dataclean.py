@@ -139,7 +139,7 @@ def filter_data_heatmap(data, indicator, agg=None):
     # binary_matrix = binary_matrix.loc[binary_matrix.sum(axis=1).sort_values(ascending=False).index]
 
     # Heatmap
-    colours = (colors.hex2color('#CED4DA'),colors.hex2color('#339AF0'))
+    colours = [colors.hex2color('#CED4DA'),colors.hex2color('#339AF0')]
     cmap = LinearSegmentedColormap.from_list('Custom', colours, len(colours))
     xint = [i.year for i in binary_matrix.columns.tolist()]
     sns.set(font_scale = 1.1)
